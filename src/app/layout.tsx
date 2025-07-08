@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "./navbar/page";
-import { Provider } from "react-redux";
-import {store} from "@/store";
+import { ReduxProvider } from "@/store/provider";
 const poppins = Poppins({
   weight: ["400", "500", "600"], 
   variable: "--font-poppins",
@@ -23,10 +22,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Provider store={store}>
+        <ReduxProvider>
           <Navbar />
           {children}
-        </Provider>
+        </ReduxProvider>
       </body>
     </html>
   );
