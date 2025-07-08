@@ -1,4 +1,4 @@
-import {createSlice} from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 interface CounterState {
   value: number;
 }
@@ -8,19 +8,19 @@ const intialState: CounterState = {
 };
 
 const counterSlice = createSlice({
-    name: 'counter',
-    initialState: intialState,
-    reducers: {
-        increment: (state) => {
-        state.value += 1;
-        },
-        decrement: (state) => {
-        state.value -= 1;
-        },
-        reset: (state) => {
-        state.value = 0;
-        },
+  name: 'counter',
+  initialState: intialState,
+  reducers: {
+    increment: (state) => {
+      state.value += 1;
     },
+    decrement: (state) => {
+      state.value > 0 ? state.value -= 1 : state.value=0;
+    },
+    reset: (state) => {
+      state.value = 0;
+    },
+  },
 })
 
 export const { increment, decrement, reset } = counterSlice.actions;
